@@ -1,0 +1,81 @@
+
+<div id='app-container'>
+  {{!-- <form class="form-example" onsubmit="myFunction()">
+    <div class="form-example">
+      <label for="email">Email: </label>
+      <input type="email" name="email" required>
+    </div>
+    <div class="form-example">
+      <label for="password">Password: </label>
+      <input type="password" name="password" required>
+    </div>
+    <div class="form-example">
+      <input type="submit" value="Sign In">
+    </div>
+  </form> --}}
+</div>
+<script type='text/javascript'>
+  let form = $("<form></form>");
+  form.append('<input type="email" name="email" placeholder="Email">');
+  form.append('<input type="password" name="password" placeholder="Password">');
+  form.append('<button type="submit">Log In</button>');
+  form.submit( e => {
+    e.preventDefault();
+    console.log('submit', e);
+    let values = form.serializeArray();
+    console.log('values', values);
+    let email = values[0].value;
+    let password = values[1].value;
+    axios.post('{{{baseUrl}}}/api/v1/authn', {
+      username: email,
+      password: password,
+      options: {
+        multiOptionalFactorEnroll: false,
+        warnBeforePasswordExpired: true
+      }
+    }, {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }).then( res => {
+      console.log('response:', res);
+      var invisiform = $('<form>', {
+        method: 'POST',
+        action: '/login'
+      });
+      $(document.body).append(invisiform);
+      var sessionTokenField = $('<input type="hidden" name="sessionToken"/>');
+      var csrfTokenField = $('<input type="hidden" name="_csrf" value="{{{csrfToken}}}"/>');
+      sessionTokenField.val(res.data.sessionToken)
+      invisiform.append(sessionTokenField);
+      invisiform.append(csrfTokenField);
+      invisiform.submit();
+    }).catch(err => {
+      console.log('err:', err);
+    });
+  });
+  $('#app-container').append(form);
+</script>
+
+{{!-- <script type="text/javascript">
+  var signIn = new OktaSignIn({
+    // Assumes there is an empty element on the page with an id of 'app-container'
+    baseUrl: '{{{baseUrl}}}',
+  });
+
+  signIn.renderEl({ el: '#app-container' }, (res) => {
+      var form = $('<form>', {
+        method: 'POST',
+        action: '/login'
+      });
+      $(document.body).append(form);
+      var sessionTokenField = $('<input type="hidden" name="sessionToken"/>');
+      var csrfTokenField = $('<input type="hidden" name="_csrf" value="{{{csrfToken}}}"/>');
+      sessionTokenField.val(res.session.token)
+      form.append(sessionTokenField);
+      form.append(csrfTokenField);
+      form.submit();
+    }, (err) => {
+      console.error(err);
+    });
+
+</script> --}}

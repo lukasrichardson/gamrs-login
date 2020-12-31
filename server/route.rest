@@ -1,0 +1,35 @@
+GET http://localhost:3000/users?email=lukasrichardson1998@gmail.com
+###
+GET http://localhost:3000/users
+authorization: Bearer eyJraWQiOiJGTUM5YW1OeVI1ZnprSmZ1TDNMTVIzNTV1bFpkN29kdEgxbWpSeDNPcHJVIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlM1N25FWGs0LU4zVGl3TTdjdGpLMHMtSVktWlJwNzZkMnpfYWRPRXNyY2ciLCJpc3MiOiJodHRwczovL2Rldi01NTcxNjk3Lm9rdGEuY29tL29hdXRoMi9kZWZhdWx0IiwiYXVkIjoiYXBpOi8vZGVmYXVsdCIsImlhdCI6MTYwODYyNTc2NSwiZXhwIjoxNjA4NjI5MzY1LCJjaWQiOiIwb2EydGNlbDN4YW5YUmpOVjVkNiIsInNjcCI6WyJjdXN0b21TY29wZSJdLCJzdWIiOiIwb2EydGNlbDN4YW5YUmpOVjVkNiJ9.AHEF0uMzGquTpkThbaZ83D0Q5Qqb55ohhMAj1Kun0eJjpWKe17bej5nnDRfTPH-nDqOCuhMqLFTCdIXmqpp0KfIKetEUGz2MuHo-HThWvNTwtCZFaFUu0CGIJrrFfsMBdCtykfrdDN9ignRIf16oOBwGT3K9dJomRn0qL5euik9qv3v2y1Ce93qKx_oIdvbYRyN8p5QejSj_GXFp3AXHi_vmhYKslGX4wGs6N4MkUGwCnJmYwc2mIb6WOEWmsEFvhFBdrljzk339yH5sLSJkA9IIIIJJsf76mFbec3v4UIUufMlqi35znBdDWTMjS_aRF9jXS-C_i1Q-RJyJolNfZg
+###
+GET http://localhost:3000/users/5fdd46d0e9dc1ee1ea10b533
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test",
+    "confirmPassword": "test",
+    "email": "lukasrichardson1998@gmail.com"
+}
+
+###
+DELETE http://localhost:3000/users/5feb8772087f8a2242a59dee
+
+###
+PATCH http://localhost:3000/users/5fa71752016d067554ec4520
+Content-Type: application/json
+
+{
+    "name": "Lukas Test"
+}
+
+###
+DELETE http://localhost:3000/users/all
+###
+GET http://localhost:3000/login
+###
+GET http://localhost:3000/logout
+Authorization: Bearer eyJraWQiOiJGTUM5YW1OeVI1ZnprSmZ1TDNMTVIzNTV1bFpkN29kdEgxbWpSeDNPcHJVIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULlM1N25FWGs0LU4zVGl3TTdjdGpLMHMtSVktWlJwNzZkMnpfYWRPRXNyY2ciLCJpc3MiOiJodHRwczovL2Rldi01NTcxNjk3Lm9rdGEuY29tL29hdXRoMi9kZWZhdWx0IiwiYXVkIjoiYXBpOi8vZGVmYXVsdCIsImlhdCI6MTYwODYyNTc2NSwiZXhwIjoxNjA4NjI5MzY1LCJjaWQiOiIwb2EydGNlbDN4YW5YUmpOVjVkNiIsInNjcCI6WyJjdXN0b21TY29wZSJdLCJzdWIiOiIwb2EydGNlbDN4YW5YUmpOVjVkNiJ9.AHEF0uMzGquTpkThbaZ83D0Q5Qqb55ohhMAj1Kun0eJjpWKe17bej5nnDRfTPH-nDqOCuhMqLFTCdIXmqpp0KfIKetEUGz2MuHo-HThWvNTwtCZFaFUu0CGIJrrFfsMBdCtykfrdDN9ignRIf16oOBwGT3K9dJomRn0qL5euik9qv3v2y1Ce93qKx_oIdvbYRyN8p5QejSj_GXFp3AXHi_vmhYKslGX4wGs6N4MkUGwCnJmYwc2mIb6WOEWmsEFvhFBdrljzk339yH5sLSJkA9IIIIJJsf76mFbec3v4UIUufMlqi35znBdDWTMjS_aRF9jXS-C_i1Q-RJyJolNfZg
